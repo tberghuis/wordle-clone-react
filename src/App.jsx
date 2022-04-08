@@ -21,7 +21,10 @@ function App() {
       hello world
       <div className="btn-blue">test foo</div>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <RenderRow></RenderRow>
+      <RenderRow word="TOMMY"></RenderRow>
+      <RenderRow word="TOM"></RenderRow>
+      <RenderRow word=""></RenderRow>
+      
       <KeyboardIntercept></KeyboardIntercept>
     </div>
   );

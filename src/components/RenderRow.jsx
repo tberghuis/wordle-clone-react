@@ -6,13 +6,19 @@ import RenderCell from "./RenderCell";
 //   return <h1>{word}</h1>;
 // }
 
-function RenderRow() {
-  const word = "TOMMY";
+function RenderRow({ word }) {
+  // const word = "TOMMY";
+
+  const wordArr = new Array(5).fill(null);
+  word.split("").map((char, i) => {
+    wordArr[i] = char;
+  });
+
   return (
-    <div className="flex flex-row">
-      <RenderCell char="1"></RenderCell>
-      <RenderCell char="2"></RenderCell>
-      <RenderCell char="3"></RenderCell>
+    <div className="flex flex-row place-content-center">
+      {wordArr.map((char, i) => (
+        <RenderCell char={char}></RenderCell>
+      ))}
     </div>
   );
 }
