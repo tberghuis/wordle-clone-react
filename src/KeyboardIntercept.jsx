@@ -4,6 +4,7 @@ import { useStore } from "./store";
 function KeyboardIntercept() {
   const addLetter = useStore((state) => state.addLetter);
   const removeLetter = useStore((state) => state.removeLetter);
+  const onKeyUpEnter = useStore((state) => state.onKeyUpEnter);
 
   useEffect(() => {
     console.log("KeyboardIntercept effect ran");
@@ -22,6 +23,12 @@ function KeyboardIntercept() {
 
       if (event.code === "Backspace") {
         removeLetter();
+        return;
+      }
+
+      if (event.code === "Enter") {
+        onKeyUpEnter();
+        return;
       }
     };
 

@@ -32,4 +32,15 @@ export const useStore = create((set) => ({
 
       return { wordList: wordList };
     }),
+
+  onKeyUpEnter: () =>
+    set((state) => {
+      console.log("onKeyUpEnter");
+
+      // todo finish implementing this function
+
+      const cursorRow = state.cursorRow + 1;
+
+      return { cursorRow: cursorRow };
+    }),
 }));
