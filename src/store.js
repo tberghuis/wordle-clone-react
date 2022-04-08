@@ -1,12 +1,18 @@
 import create from "zustand";
 
-// export const useStore = create((set) => ({
-//   bears: 0,
-//   increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-//   removeAllBears: () => set({ bears: 0 }),
-// }));
-
 export const useStore = create((set) => ({
   word: "",
-  addLetter: (letter) => set((state) => ({ word: `${state.word}${letter}` })),
+
+  addLetter: (letter) =>
+    set((state) => {
+      if (state.word.length === 5) {
+        return;
+      }
+
+      return { word: `${state.word}${letter}` };
+    }),
+
+  removeLetter: () => {
+    return { word: `removeLetter todo` };
+  },
 }));
