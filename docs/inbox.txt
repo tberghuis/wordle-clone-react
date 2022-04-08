@@ -1,8 +1,6 @@
-react typescript video
 
-choose state management lib, watch video
+zustand hello world
 
-typescript udemy
 
 r / reactjs wordle
 
