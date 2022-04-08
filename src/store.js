@@ -23,10 +23,13 @@ export const useStore = create((set) => ({
 
   removeLetter: () =>
     set((state) => {
-      if (state.word.length === 0) {
+      const word = state.wordList[state.cursorRow];
+      if (word.length === 0) {
         return;
       }
+      const wordList = [...state.wordList];
+      wordList[state.cursorRow] = word.slice(0, -1);
 
-      return { word: `${state.word.slice(0, -1)}` };
+      return { wordList: wordList };
     }),
 }));
