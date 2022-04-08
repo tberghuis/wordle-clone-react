@@ -1,15 +1,24 @@
 import create from "zustand";
 
+const wordList = new Array(6).fill("");
+
 export const useStore = create((set) => ({
-  word: "",
+  wordList: wordList,
+  cursorRow: 0,
 
   addLetter: (letter) =>
     set((state) => {
-      if (state.word.length === 5) {
+      const word = state.wordList[state.cursorRow];
+
+      if (word.length === 5) {
         return;
       }
 
-      return { word: `${state.word}${letter}` };
+      const wordList = [...state.wordList];
+
+      wordList[state.cursorRow] = `${wordList[state.cursorRow]}${letter}`;
+
+      return { wordList: wordList };
     }),
 
   removeLetter: () =>

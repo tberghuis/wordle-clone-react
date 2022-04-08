@@ -1,14 +1,12 @@
 import { useState } from "react";
 import logo from "./logo.svg";
 // import "./App.css";
-
-
+import { useStore } from "./store";
 
 import KeyboardIntercept from "./KeyboardIntercept";
 import RenderRow from "./components/RenderRow";
 
 // need better naming
-
 
 // function Controls() {
 //   const increasePopulation = useStore((state) => state.increasePopulation);
@@ -16,15 +14,18 @@ import RenderRow from "./components/RenderRow";
 // }
 
 function App() {
+  const wordList = useStore((state) => state.wordList);
+
   return (
     <div>
-      hello world
-      <div className="btn-blue">test foo</div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <RenderRow word="TOMMY"></RenderRow>
+      {/* <RenderRow word="TOMMY"></RenderRow>
       <RenderRow word="TOM"></RenderRow>
-      <RenderRow word=""></RenderRow>
-      
+      <RenderRow word=""></RenderRow> */}
+
+      {wordList.map((word) => (
+        <RenderRow word={word}></RenderRow>
+      ))}
+
       <KeyboardIntercept></KeyboardIntercept>
     </div>
   );
