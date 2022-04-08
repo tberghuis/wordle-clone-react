@@ -12,3 +12,6 @@ tech to use
   zustand
 
 why is there an intermittent popup npm install hint console window???
+
+
+combine zustand with a bunch of rxjs subjects to make it more consise

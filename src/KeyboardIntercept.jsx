@@ -13,6 +13,7 @@ function KeyboardIntercept() {
       // a = 65
       // z = 90
       // TODO how to do this is keyCode is deprecated....
+      // is there a lib to convert key to keyCode?
       if (event.keyCode >= 65 && event.keyCode <= 90) {
         console.log("letter", event.key.toUpperCase());
         addLetter(event.key.toUpperCase());
