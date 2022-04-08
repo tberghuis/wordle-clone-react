@@ -10,3 +10,5 @@ tech to use
   vite
   tailwind
   zustand
+
+why is there an intermittent popup npm install hint console window???
