@@ -1,4 +1,5 @@
 import { useStore } from "../store";
+import RenderCell from "./RenderCell";
 
 // function RenderRow() {
 //   const word = useStore((state) => state.word);
@@ -7,7 +8,13 @@ import { useStore } from "../store";
 
 function RenderRow() {
   const word = "TOMMY";
-  return <div>{word}</div>;
+  return (
+    <div className="flex flex-row">
+      <RenderCell char="1"></RenderCell>
+      <RenderCell char="2"></RenderCell>
+      <RenderCell char="3"></RenderCell>
+    </div>
+  );
 }
 
 export default RenderRow;
