@@ -17,7 +17,7 @@ function RenderRow({ word }) {
   return (
     <div className="flex flex-row place-content-center">
       {wordArr.map((char, i) => (
-        <RenderCell char={char}></RenderCell>
+        <RenderCell key={i} char={char}></RenderCell>
       ))}
     </div>
   );
