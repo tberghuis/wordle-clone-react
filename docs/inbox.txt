@@ -1,0 +1,14 @@
+react typescript video
+
+choose state management lib, watch video
+
+typescript udemy
+
+r / reactjs wordle
+
+
+tech to use
+  react
+  vite
+  tailwind
+  zustand
