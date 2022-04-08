@@ -3,6 +3,7 @@ import { useStore } from "./store";
 
 function KeyboardIntercept() {
   const addLetter = useStore((state) => state.addLetter);
+  const removeLetter = useStore((state) => state.removeLetter);
 
   useEffect(() => {
     console.log("KeyboardIntercept effect ran");
@@ -15,6 +16,11 @@ function KeyboardIntercept() {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
         console.log("letter", event.key.toUpperCase());
         addLetter(event.key.toUpperCase());
+        return;
+      }
+
+      if (event.code === "Backspace") {
+        removeLetter();
       }
     };
 

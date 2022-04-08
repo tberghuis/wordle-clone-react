@@ -12,7 +12,8 @@ export const useStore = create((set) => ({
       return { word: `${state.word}${letter}` };
     }),
 
-  removeLetter: () => {
-    return { word: `removeLetter todo` };
-  },
+  removeLetter: () =>
+    set((state) => {
+      return { word: `removeLetter todo` };
+    }),
 }));
