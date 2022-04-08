@@ -15,3 +15,7 @@ why is there an intermittent popup npm install hint console window???
 
 
 combine zustand with a bunch of rxjs subjects to make it more consise
+
+
+look for wordle tailwind github examples
+read code
