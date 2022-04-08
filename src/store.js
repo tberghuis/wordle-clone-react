@@ -8,5 +8,5 @@ import create from "zustand";
 
 export const useStore = create((set) => ({
   word: "",
-  addLetter: (letter) => set((state) => ({ word: `${word}${letter}` })),
+  addLetter: (letter) => set((state) => ({ word: `${state.word}${letter}` })),
 }));
