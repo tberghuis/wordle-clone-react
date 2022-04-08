@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logo from "./logo.svg";
-import "./App.css";
+// import "./App.css";
 
 import { useStore } from "./store";
 
@@ -21,6 +21,8 @@ function App() {
   return (
     <div>
       hello world
+      <div className="btn-blue">test foo</div>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <RenderRow></RenderRow>
       <KeyboardIntercept></KeyboardIntercept>
     </div>
