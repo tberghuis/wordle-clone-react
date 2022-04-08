@@ -22,8 +22,8 @@ function App() {
       <RenderRow word="TOM"></RenderRow>
       <RenderRow word=""></RenderRow> */}
 
-      {wordList.map((word) => (
-        <RenderRow word={word}></RenderRow>
+      {wordList.map((word, i) => (
+        <RenderRow key={i} word={word}></RenderRow>
       ))}
 
       <KeyboardIntercept></KeyboardIntercept>
