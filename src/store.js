@@ -14,6 +14,10 @@ export const useStore = create((set) => ({
 
   removeLetter: () =>
     set((state) => {
-      return { word: `removeLetter todo` };
+      if (state.word.length === 0) {
+        return;
+      }
+
+      return { word: `${state.word.slice(0, -1)}` };
     }),
 }));
