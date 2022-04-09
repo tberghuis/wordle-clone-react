@@ -4,6 +4,7 @@ import { useStore } from "./store";
 import KeyboardIntercept from "./KeyboardIntercept";
 import RenderRow from "./components/RenderRow";
 import SnackbarDemo from "./tmp/SnackbarDemo";
+import NewGame from "./tmp/NewGame";
 
 function App() {
   const wordList = useStore((state) => state.wordList);
@@ -16,6 +17,7 @@ function App() {
       <KeyboardIntercept></KeyboardIntercept>
 
       <SnackbarDemo></SnackbarDemo>
+      <NewGame></NewGame>
     </div>
   );
 }
