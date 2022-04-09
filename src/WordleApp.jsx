@@ -11,7 +11,7 @@ export default function WordleApp() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col h-[150px] mx-auto text-center justify-end space-y-3 p-3">
+      <div className="flex flex-col h-[120px] mx-auto text-center justify-end space-y-3 m-3">
         {gameState !== "PLAYING" && <NewGameButton></NewGameButton>}
         {gameState === "LOST" && <div>{solution}</div>}
       </div>
