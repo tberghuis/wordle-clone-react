@@ -39,3 +39,4 @@ learn flexbox off by heart
 
 
 npm run build should write to docs
+powershell script cp from dist to docs
