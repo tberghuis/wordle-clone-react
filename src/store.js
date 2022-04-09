@@ -1,4 +1,6 @@
 import create from "zustand";
+import toast from "react-hot-toast";
+import { VALID_WORDS } from "./const/valid_words";
 
 const wordList = new Array(6).fill("");
 
@@ -41,6 +43,11 @@ export const useStore = create((set) => ({
 
       const word = state.wordList[state.cursorRow];
       if (word.length !== 5) {
+        return;
+      }
+
+      if (!VALID_WORDS.includes(word)) {
+        toast("Not in word list");
         return;
       }
 
