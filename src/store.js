@@ -39,6 +39,11 @@ export const useStore = create((set) => ({
 
       // todo finish implementing this function
 
+      const word = state.wordList[state.cursorRow];
+      if (word.length !== 5) {
+        return;
+      }
+
       const cursorRow = state.cursorRow + 1;
 
       return { cursorRow: cursorRow };
