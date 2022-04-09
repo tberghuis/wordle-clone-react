@@ -38,6 +38,9 @@ export function onKeyUpEnter() {
   const { wordList, cursorRow } = useWordleStore.getState();
   const word = wordList[cursorRow];
 
+  // todo finish implementing this function
+  // copy from wordleclone kotlin
+
   if (word.length !== 5) {
     return;
   }
