@@ -23,3 +23,6 @@ read code
 
 zustand had a bug where i would get undefined value/s in store after call newGame
 
+
+https://dev.to/franciscomendes10866/how-to-create-a-notificationtoast-using-react-and-tailwind-545o
+
