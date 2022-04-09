@@ -1,5 +1,9 @@
-export default function RenderCell({ char }) {
-  const backgroundColor = calcBackgroundColor(char, 0, 0, -1, "HELLO");
+import { useStore } from "../store";
+
+export default function RenderCell({ char, row, col }) {
+  const cursorRow = useStore((state) => state.cursorRow);
+
+  const backgroundColor = calcCellStyle(char, row, col, cursorRow, "HELLO");
 
   // console.log("backgroundColor", backgroundColor);
 
@@ -9,6 +13,18 @@ export default function RenderCell({ char }) {
   return <div className={className}>{char}</div>;
 }
 
-function calcBackgroundColor(char, row, col, cursorRow, solution) {
+function calcCellStyle(char, row, col, cursorRow, solution) {
+  if (row === cursorRow) {
+    return "bg-yellow-500";
+  }
+
+  if (row === 0) {
+    return "bg-sky-500";
+  }
+
+  if (col === 1) {
+    return "bg-red-500";
+  }
+
   return "bg-indigo-500";
 }

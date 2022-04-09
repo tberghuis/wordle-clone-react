@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       {wordList.map((word, i) => (
-        <RenderRow key={i} word={word}></RenderRow>
+        <RenderRow key={i} word={word} row={i}></RenderRow>
       ))}
       <KeyboardIntercept></KeyboardIntercept>
     </div>

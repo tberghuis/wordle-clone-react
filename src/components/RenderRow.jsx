@@ -6,7 +6,7 @@ import RenderCell from "./RenderCell";
 //   return <h1>{word}</h1>;
 // }
 
-function RenderRow({ word }) {
+function RenderRow({ word, row }) {
   // const word = "TOMMY";
 
   const wordArr = new Array(5).fill(null);
@@ -17,7 +17,7 @@ function RenderRow({ word }) {
   return (
     <div className="flex flex-row place-content-center">
       {wordArr.map((char, i) => (
-        <RenderCell key={i} char={char}></RenderCell>
+        <RenderCell key={i} char={char} row={row} col={i}></RenderCell>
       ))}
     </div>
   );
