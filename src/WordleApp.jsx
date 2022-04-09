@@ -22,7 +22,14 @@ export default function WordleApp() {
       ))}
 
       <RenderKeyboard></RenderKeyboard>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: {
+            marginTop: "300px",
+            backgroundColor: "#a5f3fc",
+          },
+        }}
+      />
     </div>
   );
 }
