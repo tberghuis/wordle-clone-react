@@ -27,3 +27,5 @@ zustand had a bug where i would get undefined value/s in store after call newGam
 https://dev.to/franciscomendes10866/how-to-create-a-notificationtoast-using-react-and-tailwind-545o
 
 using context api instead of zustand
+
+tailwind components layer apply
