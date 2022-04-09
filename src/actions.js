@@ -35,7 +35,7 @@ export function removeLetter() {
 export function onKeyUpEnter() {
   console.log("onKeyUpEnter");
 
-  const { wordList, cursorRow } = useWordleStore.getState();
+  const { wordList, cursorRow, solution } = useWordleStore.getState();
   const word = wordList[cursorRow];
 
   // todo finish implementing this function
@@ -51,6 +51,19 @@ export function onKeyUpEnter() {
   }
 
   // check if won
+  if (word === solution) {
+    toast("Winner");
+
+    useWordleStore.setState({ cursorRow: cursorRow + 1, gameState: "WON" });
+    return;
+  }
+
+  // check if lost
+  if (cursorRow === 5) {
+    toast("Loser");
+    useWordleStore.setState({ cursorRow: cursorRow + 1, gameState: "LOST" });
+    return;
+  }
 
   useWordleStore.setState({ cursorRow: cursorRow + 1 });
 }
