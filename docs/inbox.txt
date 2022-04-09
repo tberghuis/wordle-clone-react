@@ -36,3 +36,6 @@ make UI responsive for mobile
 VALID_WORDS and TOP_WORDS
 
 learn flexbox off by heart
+
+
+npm run build should write to docs
