@@ -1,12 +1,7 @@
-import { useStore } from "../store";
+import { useWordleStore } from "../wordleStore";
 
 export default function RenderCell({ char, row, col }) {
-  const cursorRow = useStore((state) => state.cursorRow);
-  const solution = useStore((state) => state.solution);
-
-  const cellStyle = calcCellStyle(char, row, col, cursorRow, solution);
-
-  // console.log("backgroundColor", backgroundColor);
+  const cellStyle = calcCellStyle(char, row, col);
 
   // use lib classnames or clsx... ???
   const className = `border p-5 m-1 w-16 h-16 text-center ${cellStyle}`;
@@ -14,10 +9,10 @@ export default function RenderCell({ char, row, col }) {
   return <div className={className}>{char}</div>;
 }
 
+function calcCellStyle(char, row, col) {
+  const cursorRow = useWordleStore((state) => state.cursorRow);
+  const solution = useWordleStore((state) => state.solution);
 
-// could i call useStore in this function???
-// probably but better to keep pure
-function calcCellStyle(char, row, col, cursorRow, solution) {
   if (row >= cursorRow) {
     return "";
   }
