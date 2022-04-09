@@ -8,7 +8,7 @@ export default function RenderKeyboard() {
 
   const rowStyle = "flex flex-row justify-center";
   const keyStyle =
-    "flex flex-col justify-center border m-1 w-10 h-16 text-center ";
+    "flex flex-col justify-center border m-1 w-10 h-16 text-center cursor-pointer";
 
   // do i need name RenderRow???
   const renderKeyRow = (row) => {
