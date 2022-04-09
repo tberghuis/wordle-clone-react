@@ -1,3 +1,11 @@
 export default function NewGame() {
-  return <div>new game</div>;
+  const newGame = () => {
+    console.log("newGame");
+  };
+
+  return (
+    <div>
+      <button onClick={newGame}>new game</button>
+    </div>
+  );
 }
