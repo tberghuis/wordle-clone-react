@@ -3,12 +3,12 @@ import { useStore } from "../store";
 export default function RenderCell({ char, row, col }) {
   const cursorRow = useStore((state) => state.cursorRow);
 
-  const backgroundColor = calcCellStyle(char, row, col, cursorRow, "HELLO");
+  const cellStyle = calcCellStyle(char, row, col, cursorRow, "HELLO");
 
   // console.log("backgroundColor", backgroundColor);
 
   // use lib classnames or clsx... ???
-  const className = `border p-5 m-1 w-16 h-16 text-center ${backgroundColor}`;
+  const className = `border p-5 m-1 w-16 h-16 text-center ${cellStyle}`;
 
   return <div className={className}>{char}</div>;
 }
