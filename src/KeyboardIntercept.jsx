@@ -6,9 +6,9 @@ import { StateContext } from "./context/StateContextProvider";
 function KeyboardIntercept() {
   // const addLetter = useStore((state) => state.addLetter);
   // const removeLetter = useStore((state) => state.removeLetter);
-  const onKeyUpEnter = useStore((state) => state.onKeyUpEnter);
+  // const onKeyUpEnter = useStore((state) => state.onKeyUpEnter);
 
-  const { addLetter, removeLetter } = useContext(StateContext);
+  const { addLetter, removeLetter, onKeyUpEnter } = useContext(StateContext);
 
   useEffect(() => {
     console.log("KeyboardIntercept effect ran");

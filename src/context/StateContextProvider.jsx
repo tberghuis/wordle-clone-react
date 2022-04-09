@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 import { TOP_WORDS } from "../const/top_words";
+import { VALID_WORDS } from "../const/valid_words";
+import toast from "react-hot-toast";
 
 export const StateContext = createContext();
 
@@ -27,12 +29,29 @@ const StateContextProvider = (props) => {
     setWordList([...wordList]);
   };
 
+  const onKeyUpEnter = () => {
+    const word = wordList[cursorRow];
+
+    // todo finish implementing this function
+
+    if (word.length !== 5) {
+      return;
+    }
+    if (!VALID_WORDS.includes(word)) {
+      toast("Not in word list");
+      return;
+    }
+
+    setCursorRow(cursorRow + 1);
+  };
+
   return (
     <StateContext.Provider
       value={{
         state: { wordList, cursorRow, solution },
         addLetter: addLetter,
         removeLetter: removeLetter,
+        onKeyUpEnter: onKeyUpEnter,
       }}
     >
       {props.children}
