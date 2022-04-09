@@ -1,4 +1,5 @@
 import RenderRow from "./components/RenderRow";
+import RenderKeyboard from "./components/RenderKeyboard";
 import { useWordleStore } from "./wordleStore";
 import { Toaster } from "react-hot-toast";
 import { newGame } from "./actions";
@@ -8,14 +9,15 @@ export default function WordleApp() {
 
   return (
     <div>
+      <NewGameTest></NewGameTest>
+      <ShowGameState></ShowGameState>
+
       {wordList.map((word, i) => (
         <RenderRow key={i} word={word} row={i}></RenderRow>
       ))}
 
+      <RenderKeyboard></RenderKeyboard>
       <Toaster />
-
-      <NewGameTest></NewGameTest>
-      <ShowGameState></ShowGameState>
     </div>
   );
 }
