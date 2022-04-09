@@ -3,7 +3,9 @@ import toast from "react-hot-toast";
 import { VALID_WORDS } from "./const/valid_words";
 import { TOP_WORDS } from "./const/top_words";
 
-const wordList = new Array(6).fill("");
+function newWordList() {
+  return new Array(6).fill("");
+}
 
 function randomWord() {
   const random = TOP_WORDS[Math.floor(Math.random() * TOP_WORDS.length)];
@@ -12,10 +14,16 @@ function randomWord() {
 }
 
 export const useStore = create((set) => ({
-  wordList: wordList,
+  wordList: newWordList(),
   cursorRow: 0,
-  // todo random top_words
   solution: randomWord(),
+
+  newGame: () =>
+    set((state) => ({
+      wordList: newWordList(),
+      cursorRow: 0,
+      solution: randomWord(),
+    })),
 
   addLetter: (letter) =>
     set((state) => {
