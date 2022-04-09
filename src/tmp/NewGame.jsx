@@ -1,11 +1,16 @@
+import { useStore } from "../store";
+
 export default function NewGame() {
-  const newGame = () => {
+  const newGame = useStore((state) => state.newGame);
+
+  const buttonclick = () => {
     console.log("newGame");
+    newGame();
   };
 
   return (
     <div>
-      <button onClick={newGame}>new game</button>
+      <button onClick={buttonclick}>new game</button>
     </div>
   );
 }
