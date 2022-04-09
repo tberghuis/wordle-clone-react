@@ -16,8 +16,10 @@ const StateContextProvider = (props) => {
       return;
     }
 
-    wordList[cursorRow] = `${wordList[cursorRow]}${letter}`;
-    setWordList([...wordList]);
+    const newWordList = [...wordList];
+
+    newWordList[cursorRow] = `${word}${letter}`;
+    setWordList(newWordList);
   };
 
   const removeLetter = () => {
@@ -41,8 +43,13 @@ const StateContextProvider = (props) => {
       toast("Not in word list");
       return;
     }
+    setCursorRow((cr) => cr + 1);
+  };
 
-    setCursorRow(cursorRow + 1);
+  const newGame = () => {
+    setWordList([...newWordList()]);
+    setCursorRow(0);
+    setSolution(randomWord());
   };
 
   return (
@@ -52,6 +59,8 @@ const StateContextProvider = (props) => {
         addLetter: addLetter,
         removeLetter: removeLetter,
         onKeyUpEnter: onKeyUpEnter,
+        newGame: newGame,
+        setCursorRow: setCursorRow,
       }}
     >
       {props.children}

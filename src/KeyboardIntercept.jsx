@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useStore } from "./store"; // to remove
 import { useContext } from "react";
 import { StateContext } from "./context/StateContextProvider";
@@ -10,40 +10,48 @@ function KeyboardIntercept() {
 
   const { addLetter, removeLetter, onKeyUpEnter } = useContext(StateContext);
 
-  useEffect(() => {
-    console.log("KeyboardIntercept effect ran");
+  const handler = (event) => {
+    console.log("event", event);
+    // a = 65
+    // z = 90
+    // TODO how to do this is keyCode is deprecated....
+    // is there a lib to convert key to keyCode?
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+      console.log("letter", event.key.toUpperCase());
+      addLetter(event.key.toUpperCase());
+      return;
+    }
 
-    const eventHandler = (event) => {
-      console.log("event", event);
-      // a = 65
-      // z = 90
-      // TODO how to do this is keyCode is deprecated....
-      // is there a lib to convert key to keyCode?
-      if (event.keyCode >= 65 && event.keyCode <= 90) {
-        console.log("letter", event.key.toUpperCase());
-        addLetter(event.key.toUpperCase());
-        return;
-      }
+    if (event.code === "Backspace") {
+      removeLetter();
+      return;
+    }
 
-      if (event.code === "Backspace") {
-        removeLetter();
-        return;
-      }
+    if (event.code === "Enter") {
+      onKeyUpEnter();
+      return;
+    }
+  };
 
-      if (event.code === "Enter") {
-        onKeyUpEnter();
-        return;
-      }
-    };
-
-    document.addEventListener("keyup", eventHandler);
-
-    return () => {
-      document.removeEventListener("keyup", eventHandler);
-    };
-  }, [addLetter, removeLetter, onKeyUpEnter]);
+  useEventListener("keyup", handler);
 
   return null;
 }
 
 export default KeyboardIntercept;
+
+const useEventListener = (eventName, handler, element = window) => {
+  const savedHandler = useRef();
+
+  useEffect(() => {
+    savedHandler.current = handler;
+  }, [handler]);
+
+  useEffect(() => {
+    const eventListener = (event) => savedHandler.current(event);
+    element.addEventListener(eventName, eventListener);
+    return () => {
+      element.removeEventListener(eventName, eventListener);
+    };
+  }, [eventName, element]);
+};

@@ -32,7 +32,7 @@ function Content() {
       <KeyboardIntercept></KeyboardIntercept>
 
       <SnackbarDemo></SnackbarDemo>
-      <NewGame></NewGame>
+      {/* <NewGame></NewGame> */}
       <ContextDemo></ContextDemo>
     </div>
   );

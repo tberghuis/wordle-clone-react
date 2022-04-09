@@ -1,30 +1,28 @@
 import { useContext } from "react";
-import StateContextProvider, {
-  StateContext,
-} from "../context/StateContextProvider";
+import { StateContext } from "../context/StateContextProvider";
 
 export default function ContextDemo() {
-  return (
-    <StateContextProvider>
-      <Content></Content>
-    </StateContextProvider>
-  );
+  return <Content></Content>;
 }
 
 // doitwrong
 function Content() {
-  const { state, setCursorRow } = useContext(StateContext);
+  const { newGame, setCursorRow } = useContext(StateContext);
 
   const buttonclick = () => {
-    console.log("button click");
-    setCursorRow(5);
+    console.log("new game");
+    newGame();
+  };
+
+  const incCursor = () => {
+    setCursorRow((c) => c + 1);
   };
 
   return (
     <div>
-      <div>cursorRow {state.cursorRow}</div>
       <div>
-        <button onClick={buttonclick}>context demo</button>
+        <button onClick={buttonclick}>NEW GAME context demo</button>
+        <button onClick={incCursor}>incCursor</button>
       </div>
     </div>
   );
