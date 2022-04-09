@@ -1,14 +1,21 @@
 import create from "zustand";
 import toast from "react-hot-toast";
 import { VALID_WORDS } from "./const/valid_words";
+import { TOP_WORDS } from "./const/top_words";
 
 const wordList = new Array(6).fill("");
+
+function randomWord() {
+  const random = TOP_WORDS[Math.floor(Math.random() * TOP_WORDS.length)];
+  console.log("randomWord", random);
+  return random;
+}
 
 export const useStore = create((set) => ({
   wordList: wordList,
   cursorRow: 0,
   // todo random top_words
-  solution: "HELLO",
+  solution: randomWord(),
 
   addLetter: (letter) =>
     set((state) => {
