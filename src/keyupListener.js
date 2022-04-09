@@ -24,5 +24,3 @@ const eventHandler = (event) => {
 };
 
 document.addEventListener("keyup", eventHandler);
-
-// put in file actions.js
