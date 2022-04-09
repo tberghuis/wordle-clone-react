@@ -1,4 +1,4 @@
-import { addLetter, removeLetter } from "./actions";
+import { addLetter, removeLetter, onKeyUpEnter } from "./actions";
 
 const eventHandler = (event) => {
   console.log("event", event);

@@ -29,3 +29,7 @@ export function removeLetter() {
   wordList[cursorRow] = word.slice(0, -1);
   useWordleStore.setState({ wordList: [...wordList] });
 }
+
+export function onKeyUpEnter() {
+  console.log("onKeyUpEnter");
+}
