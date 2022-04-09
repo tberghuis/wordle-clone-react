@@ -4,7 +4,9 @@ import { VALID_WORDS } from "./const/valid_words";
 import { TOP_WORDS } from "./const/top_words";
 
 function newWordList() {
-  return new Array(6).fill("");
+  //is the reference stuffing it up
+  const array = new Array(6).fill("");
+  return [...array];
 }
 
 function randomWord() {
@@ -18,12 +20,19 @@ export const useStore = create((set) => ({
   cursorRow: 0,
   solution: randomWord(),
 
-  newGame: () =>
-    set((state) => ({
-      wordList: newWordList(),
-      cursorRow: 0,
-      solution: randomWord(),
-    })),
+  newGame: () => {
+    // is this a bug??? to have to do this???
+    set({ wordList: newWordList() });
+    set({ cursorRow: 0 });
+    set({ solution: randomWord() });
+  },
+
+  // newGame: () =>
+  //   set({
+  //     wordList: newWordList(),
+  //     cursorRow: 0,
+  //     solution: randomWord(),
+  //   }),
 
   addLetter: (letter) =>
     set((state) => {
@@ -55,6 +64,7 @@ export const useStore = create((set) => ({
   onKeyUpEnter: () =>
     set((state) => {
       console.log("onKeyUpEnter");
+      // debugger;
 
       // todo finish implementing this function
 

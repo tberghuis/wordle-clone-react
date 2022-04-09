@@ -37,7 +37,7 @@ function KeyboardIntercept() {
     return () => {
       document.removeEventListener("keyup", eventHandler);
     };
-  }, []);
+  }, [addLetter, removeLetter, onKeyUpEnter]);
 
   return null;
 }

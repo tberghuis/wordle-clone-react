@@ -19,3 +19,7 @@ combine zustand with a bunch of rxjs subjects to make it more consise
 
 look for wordle tailwind github examples
 read code
+
+
+zustand had a bug where i would get undefined value/s in store after call newGame
+
