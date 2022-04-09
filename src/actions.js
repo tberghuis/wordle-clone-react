@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { useWordleStore } from "./wordleStore";
+import { useWordleStore, freshState } from "./wordleStore";
 import { VALID_WORDS } from "./const/valid_words";
 
 export function addLetter(letter) {
@@ -48,4 +48,8 @@ export function onKeyUpEnter() {
   }
 
   useWordleStore.setState({ cursorRow: cursorRow + 1 });
+}
+
+export function newGame() {
+  useWordleStore.setState(freshState());
 }

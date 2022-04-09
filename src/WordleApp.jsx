@@ -1,6 +1,7 @@
 import RenderRow from "./components/RenderRow";
 import { useWordleStore } from "./wordleStore";
 import { Toaster } from "react-hot-toast";
+import { newGame } from "./actions";
 
 export default function WordleApp() {
   const wordList = useWordleStore((state) => state.wordList);
@@ -12,6 +13,21 @@ export default function WordleApp() {
       ))}
 
       <Toaster />
+
+      <NewGameTest></NewGameTest>
+    </div>
+  );
+}
+
+function NewGameTest() {
+  const buttonclick = () => {
+    console.log("newGame");
+    newGame();
+  };
+
+  return (
+    <div>
+      <button onClick={buttonclick}>new game</button>
     </div>
   );
 }
