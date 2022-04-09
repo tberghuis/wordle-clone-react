@@ -1,7 +1,14 @@
 import { addLetter, removeLetter, onKeyUpEnter } from "./actions";
+import { useWordleStore } from "./wordleStore";
 
 const eventHandler = (event) => {
   console.log("event", event);
+
+  const { gameState } = useWordleStore.getState();
+  if (gameState !== "PLAYING") {
+    return;
+  }
+
   // a = 65
   // z = 90
   // TODO how to do this is keyCode is deprecated....
