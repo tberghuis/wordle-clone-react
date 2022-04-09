@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { onKeyUpEnter, addLetter, removeLetter } from "../actions";
+import { useWordleStore } from "../wordleStore";
 
 // doitwrong
 export default function RenderKeyboard() {
@@ -60,6 +61,25 @@ export default function RenderKeyboard() {
 }
 
 function calcKeyBackgroundColor(k) {
+  // const { wordList, cursorRow, solution } = useWordleStore.getState();
+
+  const cursorRow = useWordleStore((state) => state.cursorRow);
+  const wordList = useWordleStore((state) => state.wordList);
+  const solution = useWordleStore((state) => state.solution);
+
+  if (cursorRow === 0) {
+    return "bg-gray-300";
+  }
+
+  // check direct match
+  for (let i = 0; i < cursorRow; i++) {
+    for (let j = 0; j < 5; j++) {
+      if (wordList[i].charAt(j) === k && k === solution.charAt(j)) {
+        return "bg-green-500";
+      }
+    }
+  }
+
   if (k === "A") {
     return "bg-green-500";
   }
