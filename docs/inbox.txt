@@ -1,4 +1,8 @@
 
+cull inbox.txt
+
+clean code
+
 r / reactjs wordle
 
 tech to use
@@ -28,3 +32,7 @@ github readme
 buiild for github pages
 
 make UI responsive for mobile
+
+VALID_WORDS and TOP_WORDS
+
+learn flexbox off by heart
