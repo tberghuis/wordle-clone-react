@@ -26,3 +26,5 @@ new game position
 github public
 github readme
 buiild for github pages
+
+make UI responsive for mobile

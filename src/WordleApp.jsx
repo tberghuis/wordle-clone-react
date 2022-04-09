@@ -11,12 +11,12 @@ export default function WordleApp() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col h-[150px] mx-auto text-center">
+      <div className="flex flex-col h-[150px] mx-auto text-center justify-end space-y-3 p-3">
         {gameState !== "PLAYING" && <NewGameButton></NewGameButton>}
         {gameState === "LOST" && <div>{solution}</div>}
       </div>
 
-      <ShowGameState></ShowGameState>
+      {/* <ShowGameState></ShowGameState> */}
       {wordList.map((word, i) => (
         <RenderRow key={i} word={word} row={i}></RenderRow>
       ))}
