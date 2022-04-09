@@ -6,10 +6,16 @@ import { newGame } from "./actions";
 
 export default function WordleApp() {
   const wordList = useWordleStore((state) => state.wordList);
+  const gameState = useWordleStore((state) => state.gameState);
+  const solution = useWordleStore((state) => state.solution);
 
   return (
     <div className="flex flex-col">
-      <NewGameButton></NewGameButton>
+      <div className="flex flex-col h-[150px] mx-auto text-center">
+        {gameState !== "PLAYING" && <NewGameButton></NewGameButton>}
+        {gameState === "LOST" && <div>{solution}</div>}
+      </div>
+
       <ShowGameState></ShowGameState>
       {wordList.map((word, i) => (
         <RenderRow key={i} word={word} row={i}></RenderRow>
