@@ -20,7 +20,12 @@ export default function WordleApp() {
 }
 
 function NewGameTest() {
-  const buttonclick = () => {
+  const buttonclick = (e) => {
+    console.log("e", e);
+
+    // man this almost killed me
+    e.target.blur();
+
     console.log("newGame");
     newGame();
   };
