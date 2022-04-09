@@ -1,4 +1,6 @@
+import toast from "react-hot-toast";
 import { useWordleStore } from "./wordleStore";
+import { VALID_WORDS } from "./const/valid_words";
 
 export function addLetter(letter) {
   const { wordList, cursorRow } = useWordleStore.getState();
@@ -32,4 +34,18 @@ export function removeLetter() {
 
 export function onKeyUpEnter() {
   console.log("onKeyUpEnter");
+
+  const { wordList, cursorRow } = useWordleStore.getState();
+  const word = wordList[cursorRow];
+
+  if (word.length !== 5) {
+    return;
+  }
+
+  if (!VALID_WORDS.includes(word)) {
+    toast("Not in word list");
+    return;
+  }
+
+  useWordleStore.setState({ cursorRow: cursorRow + 1 });
 }

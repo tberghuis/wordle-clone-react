@@ -1,5 +1,6 @@
 import RenderRow from "./components/RenderRow";
 import { useWordleStore } from "./wordleStore";
+import { Toaster } from "react-hot-toast";
 
 export default function WordleApp() {
   const wordList = useWordleStore((state) => state.wordList);
@@ -9,6 +10,8 @@ export default function WordleApp() {
       {wordList.map((word, i) => (
         <RenderRow key={i} word={word} row={i}></RenderRow>
       ))}
+
+      <Toaster />
     </div>
   );
 }
