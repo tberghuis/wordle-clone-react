@@ -7,6 +7,8 @@ const wordList = new Array(6).fill("");
 export const useStore = create((set) => ({
   wordList: wordList,
   cursorRow: 0,
+  // todo random top_words
+  solution: "HELLO",
 
   addLetter: (letter) =>
     set((state) => {
