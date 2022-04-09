@@ -71,7 +71,7 @@ function calcKeyBackgroundColor(k) {
     return "bg-gray-300";
   }
 
-  // check direct match
+  // check direct position match
   for (let i = 0; i < cursorRow; i++) {
     for (let j = 0; j < 5; j++) {
       if (wordList[i].charAt(j) === k && k === solution.charAt(j)) {
@@ -80,7 +80,19 @@ function calcKeyBackgroundColor(k) {
     }
   }
 
-  if (k === "A") {
-    return "bg-green-500";
+  // check k in solution
+  for (let i = 0; i < cursorRow; i++) {
+    if (wordList[i].includes(k) && solution.includes(k)) {
+      return "bg-yellow-500";
+    }
   }
+
+  // check k in wordList
+  for (let i = 0; i < cursorRow; i++) {
+    if (wordList[i].includes(k)) {
+      return "bg-gray-500";
+    }
+  }
+
+  return "bg-gray-300";
 }
