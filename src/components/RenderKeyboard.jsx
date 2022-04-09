@@ -10,14 +10,32 @@ export default function RenderKeyboard() {
   const keyStyle =
     "flex flex-col justify-center border m-1 w-10 h-16 text-center ";
 
+  // do i need name RenderRow???
+  const renderKeyRow = (row) => {
+    return row.map((k, i) => (
+      <div key={i} className={keyStyle}>
+        <p>{k}</p>
+      </div>
+    ));
+  };
+
   return (
     <div>
+      <div className={rowStyle}>{renderKeyRow(row1)}</div>
+      <div className={rowStyle}>{renderKeyRow(row2)}</div>
       <div className={rowStyle}>
-        {row1.map((k, i) => (
-          <div key={i} className={keyStyle}>
-            <p>{k}</p>
-          </div>
-        ))}
+        <div
+          className={clsx(keyStyle, "w-24")}
+          onClick={() => {
+            console.log("enter");
+          }}
+        >
+          ENTER
+        </div>
+
+        {renderKeyRow(row3)}
+
+        <div className={clsx(keyStyle, "w-24")}>BACKSPACE</div>
       </div>
     </div>
   );
