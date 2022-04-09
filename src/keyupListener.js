@@ -1,3 +1,5 @@
+import { addLetter } from "./actions";
+
 const eventHandler = (event) => {
   console.log("event", event);
   // a = 65
@@ -24,6 +26,3 @@ const eventHandler = (event) => {
 document.addEventListener("keyup", eventHandler);
 
 // put in file actions.js
-function addLetter(letter) {
-  console.log("addLetter", letter);
-}
