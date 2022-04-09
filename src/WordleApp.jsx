@@ -8,10 +8,9 @@ export default function WordleApp() {
   const wordList = useWordleStore((state) => state.wordList);
 
   return (
-    <div>
-      <NewGameTest></NewGameTest>
+    <div className="flex flex-col">
+      <NewGameButton></NewGameButton>
       <ShowGameState></ShowGameState>
-
       {wordList.map((word, i) => (
         <RenderRow key={i} word={word} row={i}></RenderRow>
       ))}
@@ -22,21 +21,27 @@ export default function WordleApp() {
   );
 }
 
-function NewGameTest() {
-  const buttonclick = (e) => {
-    console.log("e", e);
+function NewGameButton() {
+  // const buttonclick = (e) => {
+  //   console.log("e", e);
 
-    // man this almost killed me
-    e.target.blur();
+  //   // man this almost killed me
+  //   // e.target.blur();
 
-    console.log("newGame");
-    newGame();
-  };
+  //   console.log("newGame");
+  //   newGame();
+  // };
 
   return (
-    <div>
-      <button onClick={buttonclick}>new game</button>
-    </div>
+    <button
+      type="button"
+      className="text-white bg-blue-700 mx-auto p-3"
+      onClick={() => {
+        newGame();
+      }}
+    >
+      <span>New Game</span>
+    </button>
   );
 }
 
