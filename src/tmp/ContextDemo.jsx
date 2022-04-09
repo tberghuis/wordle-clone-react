@@ -13,10 +13,11 @@ export default function ContextDemo() {
 
 // doitwrong
 function Content() {
-  const { state } = useContext(StateContext);
+  const { state, setCursorRow } = useContext(StateContext);
 
   const buttonclick = () => {
     console.log("button click");
+    setCursorRow(5);
   };
 
   return (

@@ -4,13 +4,17 @@ import { TOP_WORDS } from "../const/top_words";
 export const StateContext = createContext();
 
 const StateContextProvider = (props) => {
-
   const [wordList, setWordList] = useState(newWordList());
   const [cursorRow, setCursorRow] = useState(0);
   const [solution, setSolution] = useState(randomWord());
 
   return (
-    <StateContext.Provider value={{ state: { wordList, cursorRow, solution } }}>
+    <StateContext.Provider
+      value={{
+        state: { wordList, cursorRow, solution },
+        setCursorRow: setCursorRow,
+      }}
+    >
       {props.children}
     </StateContext.Provider>
   );
