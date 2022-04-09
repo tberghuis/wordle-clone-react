@@ -5,10 +5,10 @@ import { StateContext } from "./context/StateContextProvider";
 
 function KeyboardIntercept() {
   // const addLetter = useStore((state) => state.addLetter);
-  const removeLetter = useStore((state) => state.removeLetter);
+  // const removeLetter = useStore((state) => state.removeLetter);
   const onKeyUpEnter = useStore((state) => state.onKeyUpEnter);
 
-  const { addLetter } = useContext(StateContext);
+  const { addLetter, removeLetter } = useContext(StateContext);
 
   useEffect(() => {
     console.log("KeyboardIntercept effect ran");

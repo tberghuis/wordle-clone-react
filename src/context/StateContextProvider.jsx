@@ -18,11 +18,21 @@ const StateContextProvider = (props) => {
     setWordList([...wordList]);
   };
 
+  const removeLetter = () => {
+    const word = wordList[cursorRow];
+    if (word.length === 0) {
+      return;
+    }
+    wordList[cursorRow] = word.slice(0, -1);
+    setWordList([...wordList]);
+  };
+
   return (
     <StateContext.Provider
       value={{
         state: { wordList, cursorRow, solution },
         addLetter: addLetter,
+        removeLetter: removeLetter,
       }}
     >
       {props.children}
