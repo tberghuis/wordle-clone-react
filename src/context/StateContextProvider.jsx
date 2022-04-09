@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { TOP_WORDS } from "./const/top_words";
+import { TOP_WORDS } from "../const/top_words";
 
 export const StateContext = createContext();
 
