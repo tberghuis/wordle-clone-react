@@ -16,7 +16,7 @@ export default function RenderKeyboard() {
     return row.map((k, i) => (
       <div
         key={i}
-        className={keyStyle}
+        className={clsx(keyStyle, calcKeyBackgroundColor(k))}
         onClick={() => {
           addLetter(k);
         }}
@@ -57,4 +57,10 @@ export default function RenderKeyboard() {
       </div>
     </div>
   );
+}
+
+function calcKeyBackgroundColor(k) {
+  if (k === "A") {
+    return "bg-green-500";
+  }
 }
