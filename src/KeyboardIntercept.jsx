@@ -1,10 +1,14 @@
 import { useEffect } from "react";
-import { useStore } from "./store";
+import { useStore } from "./store"; // to remove
+import { useContext } from "react";
+import { StateContext } from "./context/StateContextProvider";
 
 function KeyboardIntercept() {
-  const addLetter = useStore((state) => state.addLetter);
+  // const addLetter = useStore((state) => state.addLetter);
   const removeLetter = useStore((state) => state.removeLetter);
   const onKeyUpEnter = useStore((state) => state.onKeyUpEnter);
+
+  const { addLetter } = useContext(StateContext);
 
   useEffect(() => {
     console.log("KeyboardIntercept effect ran");

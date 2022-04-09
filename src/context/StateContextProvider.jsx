@@ -8,11 +8,21 @@ const StateContextProvider = (props) => {
   const [cursorRow, setCursorRow] = useState(0);
   const [solution, setSolution] = useState(randomWord());
 
+  const addLetter = (letter) => {
+    const word = wordList[cursorRow];
+    if (word.length === 5) {
+      return;
+    }
+
+    wordList[cursorRow] = `${wordList[cursorRow]}${letter}`;
+    setWordList([...wordList]);
+  };
+
   return (
     <StateContext.Provider
       value={{
         state: { wordList, cursorRow, solution },
-        setCursorRow: setCursorRow,
+        addLetter: addLetter,
       }}
     >
       {props.children}
