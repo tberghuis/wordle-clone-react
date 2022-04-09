@@ -1,4 +1,4 @@
-import { addLetter } from "./actions";
+import { addLetter, removeLetter } from "./actions";
 
 const eventHandler = (event) => {
   console.log("event", event);
