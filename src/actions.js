@@ -50,6 +50,8 @@ export function onKeyUpEnter() {
     return;
   }
 
+  // check if won
+
   useWordleStore.setState({ cursorRow: cursorRow + 1 });
 }
 

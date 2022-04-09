@@ -15,6 +15,7 @@ export default function WordleApp() {
       <Toaster />
 
       <NewGameTest></NewGameTest>
+      <ShowGameState></ShowGameState>
     </div>
   );
 }
@@ -35,4 +36,9 @@ function NewGameTest() {
       <button onClick={buttonclick}>new game</button>
     </div>
   );
+}
+
+function ShowGameState() {
+  const gameState = useWordleStore((state) => state.gameState);
+  return <div>game state {gameState}</div>;
 }
