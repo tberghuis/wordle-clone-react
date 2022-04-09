@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { onKeyUpEnter, addLetter, removeLetter } from "../actions";
 
 // doitwrong
 export default function RenderKeyboard() {
@@ -28,6 +29,7 @@ export default function RenderKeyboard() {
           className={clsx(keyStyle, "w-24")}
           onClick={() => {
             console.log("enter");
+            onKeyUpEnter();
           }}
         >
           ENTER
@@ -35,7 +37,17 @@ export default function RenderKeyboard() {
 
         {renderKeyRow(row3)}
 
-        <div className={clsx(keyStyle, "w-24")}>BACKSPACE</div>
+        <div
+          className={clsx(keyStyle, "w-24")}
+          onClick={(e) => {
+            // is there a better solution than this???
+            // e.target.blur();
+            removeLetter();
+            console.log("backspace", e);
+          }}
+        >
+          <span className="mx-auto">BACKSPACE</span>
+        </div>
       </div>
     </div>
   );

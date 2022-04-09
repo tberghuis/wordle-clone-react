@@ -16,6 +16,7 @@ const eventHandler = (event) => {
   if (event.keyCode >= 65 && event.keyCode <= 90) {
     console.log("letter", event.key.toUpperCase());
     addLetter(event.key.toUpperCase());
+
     return;
   }
 
@@ -25,6 +26,7 @@ const eventHandler = (event) => {
   }
 
   if (event.code === "Enter") {
+
     onKeyUpEnter();
     return;
   }
