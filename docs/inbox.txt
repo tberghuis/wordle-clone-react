@@ -1,12 +1,12 @@
 
 r / reactjs wordle
 
-
 tech to use
   react
   vite
   tailwind
   zustand
+  clsx
 
 why is there an intermittent popup npm install hint console window???
 
@@ -18,3 +18,11 @@ https://dev.to/franciscomendes10866/how-to-create-a-notificationtoast-using-reac
 tailwind components layer apply
 
 highlight all code in wordleclone kotlin desktop
+
+toast position
+UI padding
+new game position
+
+github public
+github readme
+buiild for github pages
