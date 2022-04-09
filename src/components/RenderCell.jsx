@@ -14,17 +14,17 @@ export default function RenderCell({ char, row, col }) {
 }
 
 function calcCellStyle(char, row, col, cursorRow, solution) {
-  if (row === cursorRow) {
+  if (row >= cursorRow) {
+    return "";
+  }
+
+  if (char === solution.charAt(col)) {
+    return "bg-green-500";
+  }
+
+  if(solution.includes(char)){
     return "bg-yellow-500";
   }
 
-  if (row === 0) {
-    return "bg-sky-500";
-  }
-
-  if (col === 1) {
-    return "bg-red-500";
-  }
-
-  return "bg-indigo-500";
+  return "bg-gray-500";
 }
