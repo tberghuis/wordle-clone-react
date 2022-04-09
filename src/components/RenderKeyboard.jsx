@@ -14,8 +14,14 @@ export default function RenderKeyboard() {
   // do i need name RenderRow???
   const renderKeyRow = (row) => {
     return row.map((k, i) => (
-      <div key={i} className={keyStyle}>
-        <p>{k}</p>
+      <div
+        key={i}
+        className={keyStyle}
+        onClick={() => {
+          addLetter(k);
+        }}
+      >
+        <span>{k}</span>
       </div>
     ));
   };
