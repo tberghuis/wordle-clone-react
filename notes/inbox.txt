@@ -19,5 +19,3 @@ make UI responsive for mobile
 animations
 
 post to reddit
-
-min col height viewport height, align keyboard at end
