@@ -28,7 +28,7 @@ export default function RenderKeyboard() {
   };
 
   return (
-    <div className="m-10">
+    <div className="mt-4">
       <div className={rowStyle}>{renderKeyRow(row1)}</div>
       <div className={rowStyle}>{renderKeyRow(row2)}</div>
       <div className={rowStyle}>

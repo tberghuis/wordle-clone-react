@@ -10,6 +10,7 @@ export const freshState = () => ({
   solution: TOP_WORDS[Math.floor(Math.random() * TOP_WORDS.length)],
   // solution: "VALID",
   gameState: "PLAYING",
+  // gameState: "LOST",
 });
 
 export const useWordleStore = create(() => freshState());

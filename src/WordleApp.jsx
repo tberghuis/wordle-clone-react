@@ -11,9 +11,9 @@ export default function WordleApp() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col h-[120px] mx-auto text-center justify-end space-y-3 m-3">
-        {gameState !== "PLAYING" && <NewGameButton></NewGameButton>}
+      <div className="flex flex-row h-[50px] text-center items-center content-center justify-center space-x-6 m-3">
         {gameState === "LOST" && <div>{solution}</div>}
+        {gameState !== "PLAYING" && <NewGameButton></NewGameButton>}
       </div>
 
       {/* <ShowGameState></ShowGameState> */}
@@ -46,15 +46,17 @@ function NewGameButton() {
   // };
 
   return (
-    <button
-      type="button"
-      className="text-white bg-blue-700 mx-auto p-3"
-      onClick={() => {
-        newGame();
-      }}
-    >
-      <span>New Game</span>
-    </button>
+    <div>
+      <button
+        type="button"
+        className="text-white bg-blue-700 p-2"
+        onClick={() => {
+          newGame();
+        }}
+      >
+        <span>New Game</span>
+      </button>
+    </div>
   );
 }
 
