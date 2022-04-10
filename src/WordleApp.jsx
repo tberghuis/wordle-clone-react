@@ -10,7 +10,7 @@ export default function WordleApp() {
   const solution = useWordleStore((state) => state.solution);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <div className="flex flex-row h-[50px] text-center items-center content-center justify-center space-x-6 m-3">
         {gameState === "LOST" && <div>{solution}</div>}
         {gameState !== "PLAYING" && <NewGameButton></NewGameButton>}

@@ -31,7 +31,7 @@ export default function RenderKeyboard() {
   };
 
   return (
-    <div className="mt-2">
+    <div className="mt-auto">
       <div className={rowStyle}>{renderKeyRow(row1)}</div>
       <div className={rowStyle}>{renderKeyRow(row2)}</div>
       <div className={rowStyle}>
