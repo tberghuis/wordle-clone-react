@@ -4,7 +4,7 @@ export default function RenderCell({ char, row, col }) {
   const cellStyle = calcCellStyle(char, row, col);
 
   // use lib classnames or clsx... ???
-  const className = `border p-5 m-1 w-16 h-16 text-center ${cellStyle}`;
+  const className = `border border-neutral-400 p-5 m-1 w-16 h-16 text-center ${cellStyle}`;
 
   return <div className={className}>{char}</div>;
 }
