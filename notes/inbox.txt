@@ -15,3 +15,7 @@ tailwind components layer apply
 github readme
 
 make UI responsive for mobile
+
+animations
+
+post to reddit
