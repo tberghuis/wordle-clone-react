@@ -2,6 +2,9 @@ import clsx from "clsx";
 import { onKeyUpEnter, addLetter, removeLetter } from "../actions";
 import { useWordleStore } from "../wordleStore";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackspace, faLevelDown } from "@fortawesome/free-solid-svg-icons";
+
 // doitwrong
 export default function RenderKeyboard() {
   const row1 = "QWERTYUIOP".split("");
@@ -28,7 +31,7 @@ export default function RenderKeyboard() {
   };
 
   return (
-    <div className="mt-4">
+    <div className="mt-2">
       <div className={rowStyle}>{renderKeyRow(row1)}</div>
       <div className={rowStyle}>{renderKeyRow(row2)}</div>
       <div className={rowStyle}>
@@ -39,7 +42,9 @@ export default function RenderKeyboard() {
             onKeyUpEnter();
           }}
         >
-          ENTER
+          {/* ENTER */}
+
+          <FontAwesomeIcon icon={faLevelDown} className="fa-rotate-90" />
         </div>
 
         {renderKeyRow(row3)}
@@ -51,7 +56,10 @@ export default function RenderKeyboard() {
             console.log("backspace", e);
           }}
         >
-          <span className="mx-auto">BACKSPACE</span>
+          {/* <span className="mx-auto">BACKSPACE</span> */}
+
+          {/* <FontAwesomeIcon icon="fas fa-backspace" /> */}
+          <FontAwesomeIcon icon={faBackspace} />
         </div>
       </div>
     </div>
