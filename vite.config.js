@@ -7,5 +7,6 @@ export default defineConfig({
   base: "/wordle-clone-react/",
   build: {
     outDir: "./docs",
+    // emptyOutDir: false,
   },
 });
