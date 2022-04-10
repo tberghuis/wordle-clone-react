@@ -36,7 +36,7 @@ export default function RenderKeyboard() {
       <div className={rowStyle}>{renderKeyRow(row2)}</div>
       <div className={rowStyle}>
         <div
-          className={clsx(keyStyle, "w-24 bg-gray-300")}
+          className={clsx(keyStyle, "bg-gray-300")}
           onClick={() => {
             console.log("enter");
             onKeyUpEnter();
@@ -50,7 +50,7 @@ export default function RenderKeyboard() {
         {renderKeyRow(row3)}
 
         <div
-          className={clsx(keyStyle, "w-24 bg-gray-300")}
+          className={clsx(keyStyle, "bg-gray-300")}
           onClick={(e) => {
             removeLetter();
             console.log("backspace", e);
